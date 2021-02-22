@@ -1,0 +1,25 @@
+<div class="content"> 
+<canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+<ng-container *ngIf="rowData.length">
+ <ag-grid-angular
+ style="width: 900px; height: 200px;" class="ag-theme-balham"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  (cellValueChanged)="onCellValueChanged($event)" 
+>
+</ag-grid-angular>
+<div>
+        <button  class="btnClass" [disabled]="!enabled">Save</button>
+        <button  class="btnClass" [disabled]="!enabled">Cancel</button>
+    </div>
+</ng-container>
+</div>
+
